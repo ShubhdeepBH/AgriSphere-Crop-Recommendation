@@ -1,152 +1,186 @@
-🌾 AgriSphere – AI-Based Crop Recommendation & Mandi Price Analysis
-
-Developer: Shubhdeep Bhole
-Roll No: 24410998584
-
-AgriSphere is an automated, intelligent decision-support system designed for Indian farmers.
-It predicts the best crop for a farmer's land by combining:
-
-✔ Machine Learning
-✔ Live Weather Data
-✔ Mandi Price Scraping
-✔ Soil Nutrient Inputs
-✔ SQL Logging
-✔ Power BI Analytics Dashboard
-
-🚀 Features
-🔹 1. AI-Based Crop Recommendation
-
-RandomForest ML model trained on the Crop Recommendation Dataset
-
-Inputs: N, P, K, pH, rainfall, temperature, humidity
-
-Outputs: Top 3 crops + suitability %
-
-🔹 2. Live Weather Integration
-
-Powered by OpenWeatherMap API
-
-Automatically detects farmer’s location
-
-Fetches temperature & humidity in real-time
-
-🔹 3. Mandi Price Scraping (Agmarknet)
-
-A hardened and multi-strategy web scraper that fetches real mandi prices:
-
-Regex-based extraction
-
-Multi-table fallback
-
-Cached for performance
-
-🔹 4. Ranking Engine (AI + Market Economics)
-
-Final crop ranking =
-
-0.6 × ML Suitability  +  0.4 × Price Normalization
+# 🌾 AgriSphere – AI-Based Crop Recommendation & Mandi Price Analysis
 
 
-Includes sanity checks (ex: cold regions won’t get tropical crops).
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.10+-blue?logo=python">
+  <img src="https://img.shields.io/badge/Streamlit-App-red?logo=streamlit">
+  <img src="https://img.shields.io/badge/SQLite-Database-green?logo=sqlite">
+  <img src="https://img.shields.io/badge/PowerBI-Dashboard-yellow?logo=powerbi">
+  <img src="https://img.shields.io/badge/ML-RandomForest-success?logo=scikitlearn">
+</p>
 
-🔹 5. SQL Database Logging
+---
 
-All recommendations are logged into SQLite:
+## 🚀 Overview
 
-Requests
+AgriSphere is an **intelligent smart farming application** that recommends the most profitable and biologically suitable crop for Indian farmers using:
 
-Recommendations
+- Machine Learning  
+- Live Weather API  
+- Real-time Mandi Price Scraping  
+- Soil Nutrient Analysis  
+- SQL Logging  
+- Power BI Analytics  
+- Auto Location Detection  
 
-Mandi Prices
+---
 
-Exports available for Power BI analytics.
+## ✨ Features
 
-🔹 6. Power BI Dashboard
+### 🔹 1. AI-Based Crop Recommendation
+- Inputs: `N, P, K, pH, rainfall, temperature, humidity`
+- ML Model: **RandomForestClassifier**
+- Output: **Top 3 Recommended Crops + Suitability %**
 
-Visual insights:
+---
 
-Top crops
+### 🔹 2. Live Weather Integration
+- Auto detects farmer’s location (browser/IP)
+- Fetches live **temperature & humidity** using OpenWeatherMap API
 
-Average suitability
+---
 
-Price coverage %
+### 🔹 3. Mandi Price Scraping (Agmarknet)
+- Multi-strategy fallback scraper  
+- Regex + table parsing  
+- Cleans numeric values  
+- Local caching for speed  
 
-State-wise trends
+---
 
-User location map
+### 🔹 4. 🥇 Ranking Engine (ML + Economics)
 
-Price trend charts
+**Hybrid Scoring Formula:**
+Final Score = (0.6 × ML Suitability) + (0.4 × Normalized Mandi Price)
 
-🧠 Tech Stack
-Component	Technology
-Frontend	Streamlit
-Backend	Python
-Machine Learning	Scikit-learn
-Web Scraping	BeautifulSoup4
-Database	SQLite
-Data Visualization	Power BI
-APIs	OpenWeatherMap
-📁 Project Structure
+
+
+Also includes:
+- Sanity checks  
+- Temperature constraints  
+- Price normalization  
+- Final re-ranking  
+
+---
+
+### 🔹 5. SQL Database Logging
+Stores:
+- Requests  
+- Predictions  
+- Mandi prices  
+
+Used for Power BI insights.
+
+---
+
+### 🔹 6. 📈 Power BI Dashboard
+Visualizes:
+- Top recommended crops  
+- State-wise distributions  
+- Suitability trends  
+- Price insights  
+- User heatmaps  
+
+---
+
+## 🧠 Tech Stack
+
+| Component | Technology | Description |
+|----------|------------|-------------|
+| Frontend | Streamlit | Web UI |
+| Backend | Python | Core logic |
+| ML Model | Scikit-learn | RandomForest classifier |
+| Web Scraper | BeautifulSoup4 | Agmarknet price extraction |
+| Database | SQLite | Local SQL storage |
+| Analytics | Power BI | Dashboard visualization |
+| API | OpenWeatherMap | Live weather service |
+
+---
+
+## 📁 Project Structure
+
+```bash
 AgriSphere/
-│── app.py                     -> ML model trainer
-│── web_app.py                 -> Streamlit main app
-│── db.py                      -> SQL models & saving logic
-│── etl_export.py              -> Exports DB to CSV for Power BI
-│── model.joblib               -> Trained ML model
-│── Crop_recommendation.csv    -> Dataset (optional)
-│── requirements.txt           -> Libraries
-│── /exports                   -> Power BI CSV outputs
-│── /screenshots               -> UI & dashboard screenshots
+│── app.py                    # ML model trainer
+│── web_app.py                # Streamlit main application
+│── db.py                     # SQLite DB functions
+│── etl_export.py             # Export DB → CSV for Power BI
+│── model.joblib              # Trained ML model
+│── Crop_recommendation.csv   # Dataset
+│── price_cache.json          # Cached mandi prices
+│── requirements.txt          # Dependencies
+│── /exports                  # Power BI CSV outputs
+│── /screenshots              # UI/Dashboard images
 └── README.md
 
-⚙️ Installation & Running
-1. Install Dependencies
-pip install -r requirements.txt
+```
+## ⚙️ Installation & Running
 
-2. Add API Key
+### 🔧 1. Install Dependencies
+`pip install -r requirements.txt`
 
-Create
-.streamlit/secrets.toml
+### 🔑 2. Add OpenWeatherMap API Key
+Create this file:
+`.streamlit/secrets.toml`
 
-OPENWEATHERMAP_API_KEY = "your_api_key_here"
+Add your API key:
+`OPENWEATHERMAP_API_KEY = "your_api_key_here"`
 
-3. Run the App
-streamlit run web_app.py
+### ▶️ 3. Run the Streamlit Application
+`streamlit run web_app.py`
+The application will launch automatically in your browser.
 
+---
 
-App will open automatically in the browser.
+## 📊 Power BI Integration
 
-📊 Power BI Dashboard
+### 📤 Export SQLite Data to CSV
+`python etl_export.py`
 
-Export updated CSVs:
+Exports will be generated in the `/exports/` folder:
+- `requests.csv`
+- `recommendations.csv`
+- `prices.csv`
 
-python etl_export.py
+### 📥 Load into Power BI
 
+- Open Power BI Desktop
+- Click Get Data → Text/CSV
+- Load all three files
+- Create your dashboard
+- Refresh anytime after re-running `etl_export.py`
 
-Load the CSVs into Power BI
+---
 
-Auto-updated visuals appear.
+## 🧪 Testing
 
-🧪 Testing
-Test	Status
-Weather API	✅ Passed
-ML Prediction	✅ Passed
-Mandi Scraper	⚠️ Resilient (fallback)
-SQL Logging	✅ Passed
-UI Testing	✅ Passed
-🔮 Future Enhancements
+| Component | Status | 
+|----------|------------|
+| Weather API | ✅ Working |
+| ML Predictions | ✅ Accurate |
+| Mandi Price Scraper | ⚠️ Has fallback handler |
+| SQL Logging | ✅ Working |
+| UI / Streamlit | ✅ Stable |
 
-Mobile app version
+---
 
-Price prediction using time series forecasting
+## 🔮 Future Enhancements
+- Mobile App (Android / iOS)
+- Mandi Price Forecasting using time-series models
+- Crop Disease Detection (image-based)
+- Local language support (Punjabi/Hindi)
+- Satellite + IoT soil sensor integration
+- Fertilizer recommendation engine
 
-Local language support (Punjabi/Hindi)
+---
 
-Satellite data integration
+## 🏁 Conclusion
+AgriSphere is a complete Machine-Learning–powered agricultural decision support system.
+It improves farmer profitability by combining data science, real-time APIs, web scraping, SQL, and Power BI analytics into one unified platform.
 
-IoT soil sensor compatibility
+---
 
-🏁 Conclusion
+## ⭐ Author
 
-AgriSphere is a powerful example of integrating Machine Learning, live APIs, data scraping, SQL, and Power BI.
-It provides farmers with accurate crop recommendations and real-time market insights, improving profitability and reducing risk.
+### 👨‍💻 Shubhdeep Bhole
+### 🧾 Roll No: 24410998584

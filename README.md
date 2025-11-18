@@ -21,7 +21,13 @@ AgriSphere is an **intelligent smart farming application** that recommends the m
 - Soil Nutrient Analysis  
 - SQL Logging  
 - Power BI Analytics  
-- Auto Location Detection  
+- Auto Location Detection
+
+  <img width="1125" height="494" alt="image" src="https://github.com/user-attachments/assets/edb3c1fb-fd50-493f-bcae-812e83a8f251" />
+  <img width="296" height="359" alt="image" src="https://github.com/user-attachments/assets/1d3d4fc7-95dd-4b7e-8c60-488a623389c3" />
+  <img width="365" height="357" alt="image" src="https://github.com/user-attachments/assets/071ab581-a05b-42b1-a510-e4ade245d021" />
+
+
 
 ---
 
@@ -67,7 +73,10 @@ Also includes:
 Stores:
 - Requests  
 - Predictions  
-- Mandi prices  
+- Mandi prices
+
+<img width="1125" height="621" alt="image" src="https://github.com/user-attachments/assets/8c0b5d2a-a6e1-4ce0-b1b0-34d10f3220fc" />
+
 
 Used for Power BI insights.
 
@@ -79,7 +88,10 @@ Visualizes:
 - State-wise distributions  
 - Suitability trends  
 - Price insights  
-- User heatmaps  
+- User heatmaps
+
+<img width="678" height="397" alt="image" src="https://github.com/user-attachments/assets/70b3a5bb-6be5-4066-9954-156f8a1bcdd9" />
+
 
 ---
 
